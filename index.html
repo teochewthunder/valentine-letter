@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Valentine Letter</title>
+
+		<style>
+			div {background: rgba(255, 0, 0, 0); }
+
+			.container
+			{
+				width: 800px;
+				height: 700px;
+				margin: 0 auto 0 auto;
+				outline: 1px solid rgba(255, 100, 100, 1);
+				overflow: hidden;
+			}
+
+			.top
+			{
+				width: 100%;
+				height: 200px;
+				overflow: hidden;
+			}
+
+			.sky
+			{
+				width: 400%;
+				height: 100%;
+				background-position: left top;
+				background-repeat: repeat-x;
+				margin-left: 0px;
+				animation-name: skymove;
+				animation-duration: 200s;	
+				animation-iteration-count: infinite;
+				animation-timing-function: linear;	
+			}
+
+			@keyframes skymove 
+			{
+				0%   {margin-left: 0px;}
+				100% {margin-left: -1600px;}
+			}		
+
+			.middle
+			{
+				width: 100%;
+				height: 850px;
+				margin-top: -200px;
+				background-size: cover;
+				background-position: middle top;
+				background-repeat: no-repeat;
+			}
+
+			.letter
+			{
+				width: 400px;
+				height: 500px;
+				margin: 0 auto 0 auto;
+				background: url("letterbg.jpg");
+				background-size: cover;
+				background-position: middle top;
+				background-repeat: no-repeat;
+
+			}
+
+			.text
+			{
+				width: 80%;
+				margin: 0 auto 0 auto;
+				font-family: georgia;
+				font-size: 12px;
+				font-weight: bold;
+				line-height: 2.5em;
+			}
+
+			.poem
+			{
+				font-style: italic;
+			}
+
+			.author
+			{
+				text-align: right;
+			}
+		</style>
+
+		<script>
+			function getTimeBg() 
+			{
+				var sky = document.getElementById("sky");
+				var earth = document.getElementById("earth");
+
+				var d = new Date();
+				if (d.getHours() >= 6 && d.getHours() <= 18) {
+					sky.style.background = "url(topbg_day.jpg)";
+					earth.style.background = "url(middlebg_day.png)";
+				}
+				else
+				{
+					sky.style.background = "url(topbg_night.jpg)";
+					earth.style.background = "url(middlebg_night.png)";
+				}
+			}
+		</script>
+	</head>
+
+	<body onload="getTimeBg()">
+		<div class="container">
+			<div class="top">
+				<div class="sky" id="sky"></div>
+			</div>
+
+			<div class="middle" id="earth">
+				<br /><br /><br /><br /><br /><br /><br /><br /><br />
+				<div class="letter">
+					<div class="text">
+						<p class="poem">
+							<br />
+							How do I love thee? Let me count the ways.<br />
+							I love thee to the depth and breadth and height<br />
+							My soul can reach, when feeling out of sight<br />
+							For the ends of being and ideal grace.<br />
+							I love thee to the level of every day's<br />
+							Most quiet need, by sun and candle-light.<br />
+							I love thee freely, as men strive for right.<br />
+							I love thee purely, as they turn from praise.<br />
+							I love thee with the passion put to use<br />
+							In my old griefs, and with my childhood's faith.<br />
+							I love thee with a love I seemed to lose<br />
+							With my lost saints. I love thee with the breath,<br />
+							Smiles, tears, of all my life; and, if God choose,<br />
+							I shall but love thee better after death.<br />
+						</p>
+						<p class="author">
+							- Elizabeth Barret Browning
+						</p>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
